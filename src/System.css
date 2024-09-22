@@ -1,0 +1,39 @@
+.answerInput {
+  width: 200px;
+  height: 40px;
+  font-size: medium;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+
+.scoringButton {
+  background-color: #1c64f2;
+  color: white;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.scoringButton:hover {
+  opacity: 0.7;
+}
+
+.clearButton {
+  background-color: #ff5a1f;
+  color: white;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.clearButton:hover {
+  opacity: 0.7;
+}
