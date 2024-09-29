@@ -2,11 +2,11 @@ import { React, useState, useRef, useEffect } from "react";
 import "./System.css";
 export default function System() {
   const rightAnswer = [
-    5, 5, 1, 5, 3, 2, 4, 4, 2, 1, 5, 3, 4, 2, 5, 4, 3, 4, 1, 3,
+    5, 1, 2, 3, 1, 2, 4, 1, 3, 3, 2, 3, 1, 5, 5, 2, 5, 3, 4, 4,
   ];
 
   const questionScore = [
-    2, 2, 2, 2, 3, 2, 3, 2, 2, 3, 3, 3, 3, 3, 2, 2, 3, 3, 3, 2,
+    2, 2, 3, 2, 2, 2, 2, 2, 3, 3, 3, 2, 2, 3, 3, 3, 3, 2, 3, 3,
   ];
 
   const wrongProblems = [];
@@ -77,32 +77,33 @@ export default function System() {
     <>
       <div>
         <input
-          placeholder="1~5 답 입력"
+          placeholder="1-5 답 입력"
           value={answer1}
           onChange={(e) => setAnswer1(e.target.value)}
           className="answerInput"
           ref={firstRef}
         ></input>
         <input
-          placeholder="6~10 답 입력"
+          placeholder="6-10 답 입력"
           value={answer2}
           onChange={(e) => setAnswer2(e.target.value)}
           className="answerInput"
           ref={secondRef}
         ></input>
         <input
-          placeholder="11~15 답 입력"
+          placeholder="11-15 답 입력"
           value={answer3}
           onChange={(e) => setAnswer3(e.target.value)}
           className="answerInput"
           ref={thirdRef}
         ></input>
         <input
-          placeholder="16~20 답 입력"
+          placeholder="16-20 답 입력"
           value={answer4}
           onChange={(e) => setAnswer4(e.target.value)}
           className="answerInput"
           ref={fourthRef}
+          maxLength={5}
         ></input>
       </div>
       <button onClick={scoring} className="scoringButton">
@@ -113,6 +114,7 @@ export default function System() {
       </button>
       <h2>총점 : {totalScore}점</h2>
       <h2>틀린 문제 : {wrong}</h2>
+      <button className="scoringButton">상세 보기</button>
     </>
   );
 }

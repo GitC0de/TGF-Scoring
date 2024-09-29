@@ -1,7 +1,18 @@
 .App {
   text-align: center;
+  align-items: center;
+}
+
+.confirmation {
+  color: red;
+  font-size: small;
+  margin-bottom: 100px;
 }
 
 .warning {
   color: red;
+}
+
+.uxHelp {
+  font-size: small;
 }
