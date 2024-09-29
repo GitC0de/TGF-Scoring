@@ -64,6 +64,14 @@ export default function System() {
     }
   };
 
+  const scoringByKey = (e) => {
+    if (e.key === "Enter") {
+      scoring();
+    } else if (e.ctrlKey || e.metaKey) {
+      clear();
+    }
+  };
+
   const clear = () => {
     setAnswer1("");
     setAnswer2("");
@@ -71,6 +79,7 @@ export default function System() {
     setAnswer4("");
     setTotalScore(0);
     setWrong([]);
+    firstRef.current.focus();
   };
 
   return (
@@ -101,16 +110,17 @@ export default function System() {
           placeholder="16-20 답 입력"
           value={answer4}
           onChange={(e) => setAnswer4(e.target.value)}
+          onKeyDown={scoringByKey}
           className="answerInput"
           ref={fourthRef}
           maxLength={5}
         ></input>
       </div>
       <button onClick={scoring} className="scoringButton">
-        채점
+        채점(Enter)
       </button>
       <button onClick={clear} className="clearButton">
-        초기화
+        초기화(Ctrl)
       </button>
       <h2>총점 : {totalScore}점</h2>
       <h2>틀린 문제 : {wrong}</h2>
