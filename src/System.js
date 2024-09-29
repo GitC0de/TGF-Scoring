@@ -89,6 +89,7 @@ export default function System() {
           placeholder="1-5 답 입력"
           value={answer1}
           onChange={(e) => setAnswer1(e.target.value)}
+          onKeyDown={scoringByKey}
           className="answerInput"
           ref={firstRef}
         ></input>
@@ -96,6 +97,7 @@ export default function System() {
           placeholder="6-10 답 입력"
           value={answer2}
           onChange={(e) => setAnswer2(e.target.value)}
+          onKeyDown={scoringByKey}
           className="answerInput"
           ref={secondRef}
         ></input>
@@ -103,6 +105,7 @@ export default function System() {
           placeholder="11-15 답 입력"
           value={answer3}
           onChange={(e) => setAnswer3(e.target.value)}
+          onKeyDown={scoringByKey}
           className="answerInput"
           ref={thirdRef}
         ></input>
