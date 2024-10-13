@@ -127,7 +127,9 @@ export default function System() {
       </button>
       <h2>총점 : {totalScore}점</h2>
       <h2>틀린 문제 : {wrong}</h2>
-      <button className="scoringButton">상세 보기</button>
+      <button onClick={() => alert("개발 중입니다!")} className="scoringButton">
+        상세 보기
+      </button>
     </>
   );
 }
