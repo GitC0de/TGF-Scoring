@@ -6,6 +6,10 @@ function App() {
   return (
     <div className="App">
       <h1>The Great Final 15주차 채점(Beta)</h1>
+      <p className="confirmation">
+        ※ 주차를 확인해주세요! 저번 주차로 되어 있다면, 업데이트가 되지 않은
+        것입니다!
+      </p>
 
       <p>학생이 기재한 답을 "숫자"만 입력해 주세요! (ex.52431...)</p>
       <p className="warning">※ 단, 마킹하지 않은 문제는 0을 입력해 주세요!</p>
@@ -17,9 +21,3 @@ function App() {
 }
 
 export default App;
-
-/* <p className="confirmation">
-        ※ 주차를 확인해주세요! 저번 주차로 되어 있다면, 업데이트가 되지 않은
-        것입니다!
-      </p>
-*/
