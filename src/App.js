@@ -5,7 +5,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <h1>The Great Final 16주차 채점(Beta)</h1>
+      <h1>The Great Final 17주차 채점(Beta)</h1>
       <p className="confirmation">
         ※ 주차를 확인해주세요! 저번 주차로 되어 있다면, 업데이트가 되지 않은
         것입니다!
