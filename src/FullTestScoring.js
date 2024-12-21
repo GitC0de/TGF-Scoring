@@ -1,6 +1,6 @@
 import { React, useState, useRef, useEffect } from "react";
 import "./System.css";
-export default function System() {
+export default function InputAllSystem() {
   const rightAnswer = [
     5, 5, 2, 1, 2, 4, 3, 3, 4, 3, 1, 2, 5, 3, 4, 5, 1, 3, 5, 2,
   ];
@@ -43,31 +43,32 @@ export default function System() {
   }, [answer3]);
 
   const scoring = () => {
-    answer = answer1 + answer2 + answer3 + answer4;
+    // answer = answer1 + answer2 + answer3 + answer4;
 
-    if (answer.length !== 20) {
-      alert("답 개수가 " + answer.length + "개입니다. 다시 입력해주세요.");
-    } else {
-      for (let i = 0; i < rightAnswer.length; i++) {
-        if (parseInt(answer.split("")[i]) === rightAnswer[i]) {
-          score += questionScore[i];
-        } else {
-          wrongProblems.push(String(i + 1) + " ");
-        }
-      }
+    // if (answer.length !== 20) {
+    //   alert("답 개수가 " + answer.length + "개입니다. 다시 입력해주세요.");
+    // } else {
+    //   for (let i = 0; i < rightAnswer.length; i++) {
+    //     if (parseInt(answer.split("")[i]) === rightAnswer[i]) {
+    //       score += questionScore[i];
+    //     } else {
+    //       wrongProblems.push(String(i + 1) + " ");
+    //     }
+    //   }
 
-      if (wrongProblems.length === 0) {
-        wrongProblems.push("없음");
-      }
-      setTotalScore(score);
-      setWrong(wrongProblems);
-    }
+    //   if (wrongProblems.length === 0) {
+    //     wrongProblems.push("없음");
+    //   }
+    //   setTotalScore(score);
+    //   setWrong(wrongProblems);
+    // }
+    alert("아직 준비 중입니다!");
   };
 
   const scoringByKey = (e) => {
     if (e.key === "Enter") {
       scoring();
-    } else if (e.ctrlKey || e.metaKey) {
+    } else if (e.key === "Escape") {
       clear();
     }
   };
@@ -123,13 +124,16 @@ export default function System() {
         채점(Enter)
       </button>
       <button onClick={clear} className="clearButton">
-        초기화(Ctrl)
+        초기화(ESC)
       </button>
       <h2>총점 : {totalScore}점</h2>
       <h2>틀린 문제 : {wrong}</h2>
-      <button onClick={() => alert("개발 중입니다!")} className="scoringButton">
-        상세 보기
-      </button>
     </>
   );
 }
+
+/*
+<button onClick={() => alert("개발 중입니다!")} className="scoringButton">
+        상세 보기
+      </button>
+*/
