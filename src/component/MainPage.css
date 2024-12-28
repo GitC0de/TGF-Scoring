@@ -1,0 +1,21 @@
+.test-select-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 75vh;
+}
+
+.concept-test-container {
+  width: 40%;
+  background-color: rgb(255, 240, 201);
+}
+
+.full-test-container {
+  width: 40%;
+  background-color: rgb(255, 240, 201);
+}
+
+.icon-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}

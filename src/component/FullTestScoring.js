@@ -1,6 +1,8 @@
 import { React, useState, useRef, useEffect } from "react";
-import "./System.css";
-export default function InputAllSystem() {
+import { useNavigate } from "react-router-dom";
+import "../System.css";
+export default function FullTestScoring() {
+  const nav = useNavigate();
   const rightAnswer = [
     5, 5, 2, 1, 2, 4, 3, 3, 4, 3, 1, 2, 5, 3, 4, 5, 1, 3, 5, 2,
   ];
@@ -85,6 +87,17 @@ export default function InputAllSystem() {
 
   return (
     <>
+      <h1>2026 AS 1주차 채점(Beta)</h1>
+      <p className="confirmation">
+        ※ 주차를 확인해주세요! 저번 주차로 되어 있다면, 업데이트가 되지 않은
+        것입니다!
+      </p>
+      <p>
+        학생이 기재한 답을 <strong>"숫자"</strong>만 입력해 주세요! (ex.
+        5243...)
+      </p>
+      <p className="warning">※ 단, 마킹하지 않은 문제는 0을 입력해 주세요!</p>
+
       <div>
         <input
           placeholder="1-5 답 입력"
@@ -128,6 +141,17 @@ export default function InputAllSystem() {
       </button>
       <h2>총점 : {totalScore}점</h2>
       <h2>틀린 문제 : {wrong}</h2>
+
+      <div>
+        <button onClick={() => nav("/concept-test")} className="modeButton">
+          1단계 ver. 채점
+        </button>
+        <button onClick={() => nav("/")} className="mainButton">
+          메인 화면
+        </button>
+      </div>
+
+      <p className="uxHelp">※ UX 설계 도움 : 안유주</p>
     </>
   );
 }
