@@ -33,6 +33,9 @@ export default function ConceptTestScoring() {
   const [totalScore, setTotalScore] = useState(0);
   const [wrong, setWrong] = useState([]);
 
+  let checked = [];
+  const [isCorrect, setIsCorrect] = useState([]);
+
   const firstRef = useRef("");
   useEffect(() => {
     firstRef.current.focus();
@@ -72,8 +75,10 @@ export default function ConceptTestScoring() {
     for (let i = 0; i < 15; i++) {
       if (parseInt(answer.split(" ")[i]) === rightAnswer[i]) {
         score += questionScore[i];
+        checked.push(1);
       } else {
         wrongProblems.push(i + 1 + " ");
+        checked.push(0);
       }
     }
 
@@ -82,6 +87,7 @@ export default function ConceptTestScoring() {
     }
     setTotalScore(score);
     setWrong(wrongProblems);
+    setIsCorrect([...checked]);
   };
 
   const scoringByKey = (e) => {
@@ -111,6 +117,7 @@ export default function ConceptTestScoring() {
     setTotalScore(0);
     setWrong([]);
     firstRef.current.focus();
+    setIsCorrect([]);
   };
 
   return (
@@ -127,10 +134,19 @@ export default function ConceptTestScoring() {
       <p className="warning">
         ※ 단, 마킹하지 않은 문제는 빈칸으로 남겨 주세요!
       </p>
+
       <div className="container">
         <div>
-          <div className="answer-container">
-            <label>1번</label>
+          <div
+            className={
+              isCorrect.length === 0
+                ? "answer-container"
+                : isCorrect[0] === 1
+                ? "answer-container true"
+                : "answer-container false"
+            }
+          >
+            <label>1번 ({questionScore[0]}점)</label>
             <input
               placeholder="1 답 입력"
               value={answer1}
@@ -140,8 +156,16 @@ export default function ConceptTestScoring() {
               ref={firstRef}
             ></input>
           </div>
-          <div className="answer-container">
-            <label>2번</label>
+          <div
+            className={
+              isCorrect.length === 0
+                ? "answer-container"
+                : isCorrect[1] === 1
+                ? "answer-container true"
+                : "answer-container false"
+            }
+          >
+            <label>2번 ({questionScore[1]}점)</label>
             <input
               placeholder="2 답 입력"
               value={answer2}
@@ -150,8 +174,16 @@ export default function ConceptTestScoring() {
               className="answerInput"
             ></input>
           </div>
-          <div className="answer-container">
-            <label>3번</label>
+          <div
+            className={
+              isCorrect.length === 0
+                ? "answer-container"
+                : isCorrect[2] === 1
+                ? "answer-container true"
+                : "answer-container false"
+            }
+          >
+            <label>3번 ({questionScore[2]}점)</label>
             <input
               placeholder="3 답 입력"
               value={answer3}
@@ -160,8 +192,16 @@ export default function ConceptTestScoring() {
               className="answerInput"
             ></input>
           </div>
-          <div className="answer-container">
-            <label>4번</label>
+          <div
+            className={
+              isCorrect.length === 0
+                ? "answer-container"
+                : isCorrect[3] === 1
+                ? "answer-container true"
+                : "answer-container false"
+            }
+          >
+            <label>4번 ({questionScore[3]}점)</label>
             <input
               placeholder="4 답 입력"
               value={answer4}
@@ -170,8 +210,16 @@ export default function ConceptTestScoring() {
               className="answerInput"
             ></input>
           </div>
-          <div className="answer-container">
-            <label>5번</label>
+          <div
+            className={
+              isCorrect.length === 0
+                ? "answer-container"
+                : isCorrect[4] === 1
+                ? "answer-container true"
+                : "answer-container false"
+            }
+          >
+            <label>5번 ({questionScore[4]}점)</label>
             <input
               placeholder="5 답 입력"
               value={answer5}
@@ -182,8 +230,16 @@ export default function ConceptTestScoring() {
           </div>
         </div>
         <div>
-          <div className="answer-container">
-            <label>6번</label>
+          <div
+            className={
+              isCorrect.length === 0
+                ? "answer-container"
+                : isCorrect[5] === 1
+                ? "answer-container true"
+                : "answer-container false"
+            }
+          >
+            <label>6번 ({questionScore[5]}점)</label>
             <input
               placeholder="6 답 입력"
               value={answer6}
@@ -192,8 +248,16 @@ export default function ConceptTestScoring() {
               className="answerInput"
             ></input>
           </div>
-          <div className="answer-container">
-            <label>7번</label>
+          <div
+            className={
+              isCorrect.length === 0
+                ? "answer-container"
+                : isCorrect[6] === 1
+                ? "answer-container true"
+                : "answer-container false"
+            }
+          >
+            <label>7번 ({questionScore[6]}점)</label>
             <input
               placeholder="7 답 입력"
               value={answer7}
@@ -202,8 +266,16 @@ export default function ConceptTestScoring() {
               className="answerInput"
             ></input>
           </div>
-          <div className="answer-container">
-            <label>8번</label>
+          <div
+            className={
+              isCorrect.length === 0
+                ? "answer-container"
+                : isCorrect[7] === 1
+                ? "answer-container true"
+                : "answer-container false"
+            }
+          >
+            <label>8번 ({questionScore[7]}점)</label>
             <input
               placeholder="8 답 입력"
               value={answer8}
@@ -212,8 +284,16 @@ export default function ConceptTestScoring() {
               className="answerInput"
             ></input>
           </div>
-          <div className="answer-container">
-            <label>9번</label>
+          <div
+            className={
+              isCorrect.length === 0
+                ? "answer-container"
+                : isCorrect[8] === 1
+                ? "answer-container true"
+                : "answer-container false"
+            }
+          >
+            <label>9번 ({questionScore[8]}점)</label>
             <input
               placeholder="9 답 입력"
               value={answer9}
@@ -222,8 +302,16 @@ export default function ConceptTestScoring() {
               className="answerInput"
             ></input>
           </div>
-          <div className="answer-container">
-            <label>10번</label>
+          <div
+            className={
+              isCorrect.length === 0
+                ? "answer-container"
+                : isCorrect[9] === 1
+                ? "answer-container true"
+                : "answer-container false"
+            }
+          >
+            <label>10번 ({questionScore[9]}점)</label>
             <input
               placeholder="10 답 입력"
               value={answer10}
@@ -234,8 +322,16 @@ export default function ConceptTestScoring() {
           </div>
         </div>
         <div>
-          <div className="answer-container">
-            <label>11번</label>
+          <div
+            className={
+              isCorrect.length === 0
+                ? "answer-container"
+                : isCorrect[10] === 1
+                ? "answer-container true"
+                : "answer-container false"
+            }
+          >
+            <label>11번 ({questionScore[10]}점)</label>
             <input
               placeholder="11 답 입력"
               value={answer11}
@@ -244,8 +340,16 @@ export default function ConceptTestScoring() {
               className="answerInput"
             ></input>
           </div>
-          <div className="answer-container">
-            <label>12번</label>
+          <div
+            className={
+              isCorrect.length === 0
+                ? "answer-container"
+                : isCorrect[11] === 1
+                ? "answer-container true"
+                : "answer-container false"
+            }
+          >
+            <label>12번 ({questionScore[11]}점)</label>
             <input
               placeholder="12 답 입력"
               value={answer12}
@@ -254,8 +358,16 @@ export default function ConceptTestScoring() {
               className="answerInput"
             ></input>
           </div>
-          <div className="answer-container">
-            <label>13번</label>
+          <div
+            className={
+              isCorrect.length === 0
+                ? "answer-container"
+                : isCorrect[12] === 1
+                ? "answer-container true"
+                : "answer-container false"
+            }
+          >
+            <label>13번 ({questionScore[12]}점)</label>
             <input
               placeholder="13 답 입력"
               value={answer13}
@@ -264,8 +376,16 @@ export default function ConceptTestScoring() {
               className="answerInput"
             ></input>
           </div>
-          <div className="answer-container">
-            <label>14번</label>
+          <div
+            className={
+              isCorrect.length === 0
+                ? "answer-container"
+                : isCorrect[13] === 1
+                ? "answer-container true"
+                : "answer-container false"
+            }
+          >
+            <label>14번 ({questionScore[13]}점)</label>
             <input
               placeholder="14 답 입력"
               value={answer14}
@@ -274,8 +394,16 @@ export default function ConceptTestScoring() {
               className="answerInput"
             ></input>
           </div>
-          <div className="answer-container">
-            <label>15번</label>
+          <div
+            className={
+              isCorrect.length === 0
+                ? "answer-container"
+                : isCorrect[14] === 1
+                ? "answer-container true"
+                : "answer-container false"
+            }
+          >
+            <label>15번 ({questionScore[14]}점)</label>
             <input
               placeholder="15 답 입력"
               value={answer15}

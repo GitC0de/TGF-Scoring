@@ -6,3 +6,15 @@
 .answer-container {
   margin-bottom: 20px;
 }
+
+.true {
+  background-color: rgb(71, 178, 22);
+}
+
+.false {
+  background-color: rgb(254, 88, 51);
+}
+
+.answer-input {
+  margin-right: 20px;
+}
