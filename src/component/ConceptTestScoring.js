@@ -103,7 +103,7 @@ export default function GradingApp() {
 
   return (
     <>
-      <h1>2026 개념반 10주차 채점(Beta)</h1>
+      <h1>2026 개념반 11주차 채점(Beta)</h1>
       <p className="confirmation">
         ※ 주차를 확인해주세요! 저번 주차로 되어 있다면, 업데이트가 되지 않은
         것입니다!
