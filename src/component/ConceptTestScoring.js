@@ -133,17 +133,15 @@ export default function GradingApp() {
                   className="answerInput"
                   placeholder="답 입력"
                 />
-
-                {wrongAnswers.length > 0 && (
-                  <p>
-                    {index + 1}번 : {wrongAnswers[index]}
-                  </p>
-                )}
               </div>
             ))}
           </div>
           <table className="answer-table">
-            <thead></thead>
+            <thead>
+              <tr>
+                <th colspan="5">틀린 선택지</th>
+              </tr>
+            </thead>
             <tbody>
               {wrongAnswers.map((item, index) => {
                 let items = item.split(", ");
