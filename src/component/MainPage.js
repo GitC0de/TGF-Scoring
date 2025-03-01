@@ -10,7 +10,7 @@ export default function MainPage() {
         <h1>채점 모드 선택</h1>
         <div className="test-select-container">
           <div className="concept-test-container">
-            <h2>1단계 채점</h2>
+            <h2>1단계 채점(Beta)</h2>
             <p className="test-type-ex">1단계 개념반 TEST 채점</p>
             <div className="icon-container">
               <svg
@@ -29,7 +29,7 @@ export default function MainPage() {
             </button>
           </div>
           <div className="full-test-container">
-            <h2>2/3단계 채점</h2>
+            <h2>2/3단계 채점(준비 중)</h2>
             <p className="test-type-ex">AS / TGF</p>
             <div className="icon-container">
               <svg
