@@ -142,6 +142,64 @@ export default function GradingApp() {
               </div>
             ))}
           </div>
+          <table className="answer-table">
+            <thead></thead>
+            <tbody>
+              {wrongAnswers.map((item, index) => {
+                let items = item.split(", ");
+                console.log(items);
+                return (
+                  <tr>
+                    <td
+                      className={
+                        items.includes("1") || items.includes("미입력")
+                          ? "wrong"
+                          : null
+                      }
+                    >
+                      1
+                    </td>
+                    <td
+                      className={
+                        items.includes("2") || items.includes("미입력")
+                          ? "wrong"
+                          : null
+                      }
+                    >
+                      2
+                    </td>
+                    <td
+                      className={
+                        items.includes("3") || items.includes("미입력")
+                          ? "wrong"
+                          : null
+                      }
+                    >
+                      3
+                    </td>
+                    <td
+                      className={
+                        items.includes("4") || items.includes("미입력")
+                          ? "wrong"
+                          : null
+                      }
+                    >
+                      4
+                    </td>
+                    <td
+                      className={
+                        items.includes("5") || items.includes("미입력")
+                          ? "wrong"
+                          : null
+                      }
+                    >
+                      5
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
         <button onClick={scoring} className="scoringButton">
           채점(Enter)
@@ -164,28 +222,5 @@ export default function GradingApp() {
 }
 
 /*
-<table>
-            <thead>
-              <tr>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-              </tr>
-            </thead>
-            <tbody>
-              {wrongAnswers.map((item) => {
-                <tr>
-                  {item.split(", ").map((j, idx) => {
-                    j.includes(String(idx + 1)) ? (
-                      <td className="wrong">{idx + 1}</td>
-                    ) : (
-                      <td className="right">{idx + 1}</td>
-                    );
-                  })}
-                </tr>;
-              })}
-            </tbody>
-          </table>
+
 */

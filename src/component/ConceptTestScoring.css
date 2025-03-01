@@ -6,6 +6,7 @@
 .answer-container {
   display: flex;
   justify-content: center;
+  flex: 1;
   margin-bottom: 20px;
 }
 
@@ -19,4 +20,14 @@
 
 .answer-input {
   margin-right: 20px;
+}
+
+.answer-table {
+  width: 200px;
+}
+
+th {
+  margin-right: 10px;
+  border: 1px solid black;
+  border-collapse: separate;
 }
