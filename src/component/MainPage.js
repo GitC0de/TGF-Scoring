@@ -29,7 +29,7 @@ export default function MainPage() {
             </button>
           </div>
           <div className="test-container">
-            <h2>2/3단계 채점(준비 중)</h2>
+            <h2>2/3단계 채점(Beta)</h2>
             <p className="test-type-ex">AS / TGF</p>
             <div className="icon-container">
               <svg
