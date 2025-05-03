@@ -1,15 +1,11 @@
 import { React, useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../System.css";
-export default function FullTestScoring() {
+export default function SelfTestScoring() {
   const nav = useNavigate();
-  const rightAnswer = [
-    5, 4, 5, 1, 3, 4, 3, 1, 2, 3, 1, 3, 4, 1, 4, 5, 1, 2, 2, 4,
-  ];
+  const rightAnswer = [];
 
-  const questionScore = [
-    2, 2, 3, 3, 2, 2, 3, 2, 3, 3, 2, 2, 2, 3, 3, 3, 3, 2, 3, 2,
-  ];
+  const questionScore = [];
 
   const wrongProblems = [];
 
@@ -45,25 +41,26 @@ export default function FullTestScoring() {
   }, [answer3]);
 
   const scoring = () => {
-    answer = answer1 + answer2 + answer3 + answer4;
+    // answer = answer1 + answer2 + answer3 + answer4;
 
-    if (answer.length !== 20) {
-      alert("답 개수가 " + answer.length + "개입니다. 다시 입력해주세요.");
-    } else {
-      for (let i = 0; i < rightAnswer.length; i++) {
-        if (parseInt(answer.split("")[i]) === rightAnswer[i]) {
-          score += questionScore[i];
-        } else {
-          wrongProblems.push(String(i + 1) + " ");
-        }
-      }
+    // if (answer.length !== 20) {
+    //   alert("답 개수가 " + answer.length + "개입니다. 다시 입력해주세요.");
+    // } else {
+    //   for (let i = 0; i < rightAnswer.length; i++) {
+    //     if (parseInt(answer.split("")[i]) === rightAnswer[i]) {
+    //       score += questionScore[i];
+    //     } else {
+    //       wrongProblems.push(String(i + 1) + " ");
+    //     }
+    //   }
 
-      if (wrongProblems.length === 0) {
-        wrongProblems.push("없음");
-      }
-      setTotalScore(score);
-      setWrong(wrongProblems);
-    }
+    //   if (wrongProblems.length === 0) {
+    //     wrongProblems.push("없음");
+    //   }
+    //   setTotalScore(score);
+    //   setWrong(wrongProblems);
+    // }
+    alert("아직 준비 중입니다!");
   };
 
   const scoringByKey = (e) => {
@@ -86,13 +83,22 @@ export default function FullTestScoring() {
 
   return (
     <>
-      <h1>2026 AS 1주차 채점(Beta)</h1>
-      <p className="confirmation">
-        ※ 주차를 확인해주세요! 저번 주차로 되어 있다면, 업데이트가 되지 않은
-        것입니다!
-      </p>
+      <h1>사용자 정의 모드 채점(Beta)</h1>
       <p>
-        학생이 기재한 답을 <strong>"숫자"</strong>만 입력해 주세요! (ex.
+        먼저, 실제 답을 <strong>"숫자"</strong>만 입력해 주세요! (ex. 5243...)
+      </p>
+      <div>
+        <input
+          placeholder="1-5 답 입력"
+          value={answer1}
+          onChange={(e) => setAnswer1(e.target.value)}
+          onKeyDown={scoringByKey}
+          className="answerInput"
+          ref={firstRef}
+        ></input>
+      </div>
+      <p>
+        그 다음, 입력한 답을 <strong>"숫자"</strong>만 입력해 주세요! (ex.
         5243...)
       </p>
       <p className="warning">※ 단, 마킹하지 않은 문제는 0을 입력해 주세요!</p>

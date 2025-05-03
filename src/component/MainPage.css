@@ -5,13 +5,8 @@
   height: 75vh;
 }
 
-.concept-test-container {
-  width: 40%;
-  background-color: rgb(255, 240, 201);
-}
-
-.full-test-container {
-  width: 40%;
+.test-container {
+  width: 30%;
   background-color: rgb(255, 240, 201);
 }
 
