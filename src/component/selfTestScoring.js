@@ -89,12 +89,11 @@ export default function SelfTestScoring() {
       </p>
       <div>
         <input
-          placeholder="1-5 답 입력"
-          value={answer1}
+          placeholder="실제 답 입력"
+          value={rightAnswer}
           onChange={(e) => setAnswer1(e.target.value)}
           onKeyDown={scoringByKey}
           className="answerInput"
-          ref={firstRef}
         ></input>
       </div>
       <p>
