@@ -108,7 +108,7 @@ export default function GradingApp() {
         ※ 주차를 확인해주세요! 저번 주차로 되어 있다면, 업데이트가 되지 않은
         것입니다!
       </p>
-      <p>
+      <p className="manual">
         학생이 기재한 답을 <strong>"숫자"</strong>만 입력해 주세요! (ex. 134,
         235 ...)
       </p>

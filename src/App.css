@@ -6,7 +6,10 @@
 .confirmation {
   color: red;
   font-size: small;
-  margin-bottom: 100px;
+}
+
+.manual {
+  margin-top: 100px;
 }
 
 .warning {

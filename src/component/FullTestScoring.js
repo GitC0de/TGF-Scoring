@@ -1,5 +1,5 @@
 import { React, useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../System.css";
 export default function FullTestScoring() {
   const nav = useNavigate();
@@ -15,6 +15,7 @@ export default function FullTestScoring() {
 
   let score = 0;
   let answer = "";
+  let slash = 0;
 
   const [answer1, setAnswer1] = useState("");
   const [answer2, setAnswer2] = useState("");
@@ -55,6 +56,11 @@ export default function FullTestScoring() {
           score += questionScore[i];
         } else {
           wrongProblems.push(String(i + 1) + " ");
+          slash += 1;
+        }
+        if (i % 5 === 4 && slash !== 0) {
+          wrongProblems.push("/ ");
+          slash = 0;
         }
       }
 
@@ -91,7 +97,11 @@ export default function FullTestScoring() {
         ※ 주차를 확인해주세요! 저번 주차로 되어 있다면, 업데이트가 되지 않은
         것입니다!
       </p>
-      <p>
+      <p className="self-test-link">
+        업데이트가 안 됐는데, 채점 서비스가 필요하다면?{" "}
+        <Link to="/self-test"> {">>"} 사용자 정의 채점 사용하기</Link>
+      </p>
+      <p className="manual">
         학생이 기재한 답을 <strong>"숫자"</strong>만 입력해 주세요! (ex.
         5243...)
       </p>
@@ -142,7 +152,18 @@ export default function FullTestScoring() {
         메인 화면
       </button>
       <h2>총점 : {totalScore}점</h2>
-      <h2>틀린 문제 : {wrong}</h2>
+      <h2>
+        틀린 문제(3점은 <span style={{ color: "red" }}>빨간색</span>으로 표시) :{" "}
+        {wrong.map((i) =>
+          questionScore[i - 1] === 3 ? (
+            <span style={{ color: "red" }}>{i}</span>
+          ) : questionScore[i - 1] === 2 ? (
+            <span>{i}</span>
+          ) : (
+            <span>{i}</span>
+          )
+        )}
+      </h2>
 
       <p className="uxHelp">※ UX 설계 도움 : 안유주</p>
     </>

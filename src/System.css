@@ -46,3 +46,7 @@
 .clearButton:hover {
   opacity: 0.7;
 }
+
+.self-test-link {
+  font-size: small;
+}
