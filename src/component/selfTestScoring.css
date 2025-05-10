@@ -1,3 +1,7 @@
 .test-info-confirmation {
   margin-bottom: 50px;
 }
+
+.readonly {
+  cursor: not-allowed;
+}

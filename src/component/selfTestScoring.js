@@ -9,6 +9,7 @@ export default function SelfTestScoring() {
 
   let tmpScore = 0;
   let answer = "";
+  let slash = 0;
 
   const [rightAnswer, setRightAnswer] = useState("");
   const [questionScore, setQuestionScore] = useState("");
@@ -59,6 +60,12 @@ export default function SelfTestScoring() {
     setIsEntered(false);
   };
 
+  const clearAnswer = () => {
+    setRightAnswer("");
+    setQuestionScore("");
+    setIsEntered(false);
+  };
+
   const scoring = () => {
     answer = answer1 + answer2 + answer3 + answer4;
 
@@ -70,6 +77,11 @@ export default function SelfTestScoring() {
           tmpScore += parseInt(questionScore[i]);
         } else {
           wrongProblems.push(String(i + 1) + " ");
+          slash += 1;
+        }
+        if (i % 5 === 4 && slash !== 0) {
+          wrongProblems.push("/ ");
+          slash = 0;
         }
       }
 
@@ -114,20 +126,23 @@ export default function SelfTestScoring() {
           placeholder="실제 답 입력"
           value={rightAnswer}
           onChange={(e) => setRightAnswer(e.target.value)}
-          className="answerInput"
+          className={isEntered ? "answerInput readonly" : "answerInput"}
           readOnly={isEntered}
         ></input>
         <input
           placeholder="문제 당 배점 입력"
           value={questionScore}
           onChange={(e) => setQuestionScore(e.target.value)}
-          className="answerInput"
+          className={isEntered ? "answerInput readonly" : "answerInput"}
           readOnly={isEntered}
         ></input>
         {isEntered ? (
           <>
             <button onClick={reviseAnswer} className="scoringButton">
               수정
+            </button>
+            <button onClick={clearAnswer} className="clearButton">
+              초기화
             </button>
             <div className="test-info-confirmation">
               <p>
@@ -202,7 +217,18 @@ export default function SelfTestScoring() {
         메인 화면
       </button>
       <h2>총점 : {totalScore}점</h2>
-      <h2>틀린 문제 : {wrong}</h2>
+      <h2>
+        틀린 문제(3점은 <span style={{ color: "red" }}>빨간색</span>으로 표시) :{" "}
+        {wrong.map((i) =>
+          questionScore[i - 1] === "3" ? (
+            <span style={{ color: "red" }}>{i}</span>
+          ) : questionScore[i - 1] === "2" ? (
+            <span>{i}</span>
+          ) : (
+            <span>{i}</span>
+          )
+        )}
+      </h2>
     </>
   );
 }
