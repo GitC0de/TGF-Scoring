@@ -2,97 +2,51 @@ import { React, useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../System.css";
 import "./selfTestScoring.css";
-export default function SelfTestScoring() {
-  const nav = useNavigate();
 
-  const selectList = [
-    { value: "default", name: "--과목 선택--" },
-    { value: "language", name: "국어/영어(선택형 45문항)" },
-    { value: "math", name: "수학(준비 중)" },
-    { value: "exploration", name: "탐구(선택형 20문항)" },
-  ];
-
-  const [option, setOption] = useState("default");
-
-  const handleOption = (e) => {
-    setOption(e.target.value);
-    console.log(option);
-  };
-
-  return (
-    <>
-      <h1>사용자 정의 모드 채점(Beta)</h1>
-      <p className="manual">
-        채점할 과목을 선택한 후, "다음으로" 버튼을 클릭하세요!
-      </p>
-      <div>
-        <select className="subject-select" onChange={handleOption}>
-          {selectList.map((i) => {
-            return (
-              <option value={i.value} key={i.value}>
-                {i.name}
-              </option>
-            );
-          })}
-        </select>
-      </div>
-
-      <button
-        onClick={() => {
-          option === "math"
-            ? alert("아직 개발 중입니다!")
-            : nav(`/self-test/${option}`);
-        }}
-        className="scoringButton"
-      >
-        다음으로
-      </button>
-
-      <button onClick={() => nav("/")} className="mainButton">
-        메인 화면
-      </button>
-    </>
-  );
-}
-
-/*
-
+export default function SelfTestMath() {
   const wrongProblems = [];
 
   let tmpScore = 0;
   let answer = "";
   let slash = 0;
+
+  const nav = useNavigate();
+
   const [rightAnswer, setRightAnswer] = useState("");
   const [questionScore, setQuestionScore] = useState("");
   const [isEntered, setIsEntered] = useState(false);
-  const [answer1, setAnswer1] = useState("");
-  const [answer2, setAnswer2] = useState("");
-  const [answer3, setAnswer3] = useState("");
-  const [answer4, setAnswer4] = useState("");
+  const [answers, setAnswers] = useState([
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+  ]);
   const [totalScore, setTotalScore] = useState(0);
   const [totalRealScore, setTotalRealScore] = useState(0);
   const [wrong, setWrong] = useState([]);
 
-  const firstRef = useRef("");
-  const secondRef = useRef("");
-  const thirdRef = useRef("");
-  const fourthRef = useRef("");
+  const inputRef = useRef([]);
 
   useEffect(() => {
-    firstRef.current.focus();
+    inputRef.current[0]?.focus();
   }, []);
 
   useEffect(() => {
-    answer1.length >= 5 && secondRef.current.focus();
-  }, [answer1]);
-
-  useEffect(() => {
-    answer2.length >= 5 && thirdRef.current.focus();
-  }, [answer2]);
-
-  useEffect(() => {
-    answer3.length >= 5 && fourthRef.current.focus();
-  }, [answer3]);
+    answers.forEach((item, index) => {
+      if (item.length >= 5 && inputRef.current[index + 1]) {
+        inputRef.current[index + 1].focus();
+      }
+    });
+  }, [answers]);
 
   const enterAnswer = () => {
     if (rightAnswer.length !== questionScore.length) {
@@ -117,10 +71,16 @@ export default function SelfTestScoring() {
     setIsEntered(false);
   };
 
-  const scoring = () => {
-    answer = answer1 + answer2 + answer3 + answer4;
+  const handleAnswer = (index, value) => {
+    let tmpAnswers = [...answers];
+    tmpAnswers[index] = value;
+    setAnswers(tmpAnswers);
+  };
 
-    if (answer.length !== 20) {
+  const scoring = () => {
+    answers.map((item) => (answer += item));
+
+    if (answer.length !== 30) {
       alert("답 개수가 " + answer.length + "개입니다. 다시 입력해주세요.");
     } else {
       for (let i = 0; i < rightAnswer.length; i++) {
@@ -155,21 +115,18 @@ export default function SelfTestScoring() {
   };
 
   const clear = () => {
-    setAnswer1("");
-    setAnswer2("");
-    setAnswer3("");
-    setAnswer4("");
+    setAnswers(["", "", "", "", "", "", "", "", ""]);
     setTotalScore(0);
     setWrong([]);
-    firstRef.current.focus();
+    inputRef.current[0].focus();
   };
-*/
 
-/*
-    <p className="manual">
-        1. 그 다음, 실제 답과 문제당 배점을 <strong>"숫자"</strong>만 입력해
-        주세요! (ex. 5243... 2232... // 아직 20문항인 경우(...)에만 사용
-        가능합니다)
+  return (
+    <>
+      <h1>국어/영어 채점</h1>
+      <p className="manual">
+        1. 실제 답과 문제당 배점을 <strong>"숫자"</strong>만 입력해 주세요! (ex.
+        5243... 2232...)
       </p>
       <div>
         <input
@@ -223,39 +180,18 @@ export default function SelfTestScoring() {
       </p>
 
       <div>
-        <input
-          placeholder="1-5 답 입력"
-          value={answer1}
-          onChange={(e) => setAnswer1(e.target.value)}
-          onKeyDown={scoringByKey}
-          className="answerInput"
-          ref={firstRef}
-        ></input>
-        <input
-          placeholder="6-10 답 입력"
-          value={answer2}
-          onChange={(e) => setAnswer2(e.target.value)}
-          onKeyDown={scoringByKey}
-          className="answerInput"
-          ref={secondRef}
-        ></input>
-        <input
-          placeholder="11-15 답 입력"
-          value={answer3}
-          onChange={(e) => setAnswer3(e.target.value)}
-          onKeyDown={scoringByKey}
-          className="answerInput"
-          ref={thirdRef}
-        ></input>
-        <input
-          placeholder="16-20 답 입력"
-          value={answer4}
-          onChange={(e) => setAnswer4(e.target.value)}
-          onKeyDown={scoringByKey}
-          className="answerInput"
-          ref={fourthRef}
-          maxLength={5}
-        ></input>
+        {answers.map((item, index) => (
+          <input
+            placeholder={`${5 * index + 1}~${5 * (index + 1)}번 입력`}
+            value={item}
+            onChange={(e) => handleAnswer(index, e.target.value)}
+            onKeyDown={scoringByKey}
+            className="answerInput"
+            ref={(el) => {
+              inputRef.current[index] = el;
+            }}
+          ></input>
+        ))}
       </div>
       <button onClick={scoring} className="scoringButton">
         채점(Enter)
@@ -263,8 +199,8 @@ export default function SelfTestScoring() {
       <button onClick={clear} className="clearButton">
         초기화(ESC)
       </button>
-      <button onClick={() => nav("/")} className="mainButton">
-        메인 화면
+      <button onClick={() => nav("/self-test")} className="mainButton">
+        과목 재선택
       </button>
       <h2>총점 : {totalScore}점</h2>
       <h2>
@@ -279,4 +215,6 @@ export default function SelfTestScoring() {
           )
         )}
       </h2>
-*/
+    </>
+  );
+}

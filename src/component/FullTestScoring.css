@@ -1,0 +1,11 @@
+.space-item {
+  width: 30px;
+}
+
+.yellow {
+  background-color: rgb(255, 240, 201);
+}
+
+.answer-item {
+  font-weight: bold;
+}

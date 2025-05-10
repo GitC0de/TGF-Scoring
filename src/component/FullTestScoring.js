@@ -1,6 +1,7 @@
 import { React, useState, useRef, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../System.css";
+import "./FullTestScoring.css";
 export default function FullTestScoring() {
   const nav = useNavigate();
   const rightAnswer = [
@@ -12,6 +13,7 @@ export default function FullTestScoring() {
   ];
 
   const wrongProblems = [];
+  const showRightAnswer = [];
 
   let score = 0;
   let answer = "";
@@ -44,6 +46,18 @@ export default function FullTestScoring() {
   useEffect(() => {
     answer3.length >= 5 && fourthRef.current.focus();
   }, [answer3]);
+
+  rightAnswer.map((item) => {
+    item === 1
+      ? showRightAnswer.push("①")
+      : item === 2
+      ? showRightAnswer.push("②")
+      : item === 3
+      ? showRightAnswer.push("③")
+      : item === 4
+      ? showRightAnswer.push("④")
+      : showRightAnswer.push("⑤");
+  });
 
   const scoring = () => {
     answer = answer1 + answer2 + answer3 + answer4;
@@ -94,9 +108,63 @@ export default function FullTestScoring() {
     <>
       <h1>2026 AS 2주차 채점(Beta)</h1>
       <p className="confirmation">
-        ※ 주차를 확인해주세요! 저번 주차로 되어 있다면, 업데이트가 되지 않은
-        것입니다!
+        ※ 주차 & 답안을 확인해주세요! 저번 주차로 되어 있거나 정답이 맞지
+        않으면, 업데이트가 되지 않은 것입니다!
       </p>
+
+      <table className="self-test-table">
+        <thead>
+          <tr>
+            {[...Array(Math.ceil(rightAnswer.length / 5))].map(
+              (_, groupIndex) => (
+                <>
+                  <td className="self-test-item">
+                    <h4>문항</h4>
+                  </td>
+                  <td className="self-test-item">
+                    <h4>정답</h4>
+                  </td>
+                  <td className="self-test-item">
+                    <h4>배점</h4>
+                  </td>
+                  <td className="space-item"> </td>
+                </>
+              )
+            )}
+          </tr>
+        </thead>
+        <tbody>
+          {[...Array(5)].map((_, rowIndex) => (
+            <tr key={rowIndex}>
+              {[...Array(Math.ceil(rightAnswer.length / 5))].map(
+                (_, groupIndex) => {
+                  const realIndex = groupIndex * 5 + rowIndex;
+                  return realIndex < rightAnswer.length ? (
+                    <>
+                      <td className="self-test-item">{realIndex + 1}</td>
+                      <td className="self-test-item answer-item">
+                        {showRightAnswer[realIndex]}
+                      </td>
+                      <td className="self-test-item">
+                        {questionScore[realIndex]}
+                      </td>
+                      <td> </td>
+                    </>
+                  ) : (
+                    // 빈 칸 채우기
+                    <>
+                      <td className="self-test-item"></td>
+                      <td className="self-test-item"></td>
+                      <td className="self-test-item"></td>
+                    </>
+                  );
+                }
+              )}
+            </tr> // 이거 gpt가 만들어준 거라 난 잘 모름ㅋㅋ(2025-05-10 내역 찾아보셈)
+          ))}
+        </tbody>
+      </table>
+
       <p className="self-test-link">
         업데이트가 안 됐는데, 채점 서비스가 필요하다면?{" "}
         <Link to="/self-test"> {">>"} 사용자 정의 채점 사용하기</Link>

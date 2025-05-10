@@ -1,7 +1,24 @@
+.subject-select {
+  height: 40px;
+  border-radius: 10px;
+  margin-top: 20px;
+  font-size: small;
+}
+
 .test-info-confirmation {
   margin-bottom: 50px;
 }
 
 .readonly {
   cursor: not-allowed;
+}
+
+.self-test-table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.self-test-item {
+  min-width: 30px;
+  border: 1px solid black;
 }
