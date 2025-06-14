@@ -21,3 +21,20 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# node.js 관련
+node_modules/
+dist/
+.env
+
+# vite build output
+.vite/
+
+# VS Code 설정
+.vscode/
+
+# 기타
+.DS_Store
+
+my-extension/
