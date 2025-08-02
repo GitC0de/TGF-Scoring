@@ -22,3 +22,10 @@
   min-width: 30px;
   border: 1px solid black;
 }
+
+.self-test-quiz-list {
+  display: flex;
+  width: 70%;
+  margin-bottom: 10px;
+  background-color: rgb(255, 240, 201);
+}

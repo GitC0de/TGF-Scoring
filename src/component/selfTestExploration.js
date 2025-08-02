@@ -141,44 +141,49 @@ export default function SelfTestLanguage() {
               </p>
             </div>
             <table className="self-test-table">
-              <thead></thead>
+              <thead>
+                <tr>
+                  {[...Array(Math.ceil(rightAnswer.length / 5))].map(
+                    (_, groupIndex) => (
+                      <>
+                        <td className="self-test-item">
+                          <h4>문항</h4>
+                        </td>
+                        <td className="self-test-item">
+                          <h4>정답</h4>
+                        </td>
+                        <td className="self-test-item">
+                          <h4>배점</h4>
+                        </td>
+                        <td className="space-item"> </td>
+                      </>
+                    )
+                  )}
+                </tr>
+              </thead>
               <tbody>
-                <tr>
-                  <td className="self-test-item">
-                    <h4>문항</h4>
-                  </td>
-                  {rightAnswerArray.map((item, index) => {
-                    return (
-                      <td className="self-test-item" key={index}>
-                        {index + 1}
-                      </td>
-                    );
-                  })}
-                </tr>
-                <tr>
-                  <td className="self-test-item">
-                    <h4>정답</h4>
-                  </td>
-                  {rightAnswerArray.map((item, index) => {
-                    return (
-                      <td className="self-test-item" key={index}>
-                        {item}
-                      </td>
-                    );
-                  })}
-                </tr>
-                <tr>
-                  <td className="self-test-item">
-                    <h4>배점</h4>
-                  </td>
-                  {rightAnswerArray.map((item, index) => {
-                    return (
-                      <td className="self-test-item" key={index}>
-                        {questionScore[index]}
-                      </td>
-                    );
-                  })}
-                </tr>
+                {[...Array(5)].map((_, rowIndex) => (
+                  <tr key={rowIndex}>
+                    {[...Array(Math.ceil(rightAnswer.length / 5))].map(
+                      (_, groupIndex) => {
+                        const realIndex = groupIndex * 5 + rowIndex;
+                        return realIndex < rightAnswer.length ? (
+                          <>
+                            <td className="self-test-item">{realIndex + 1}</td>
+                            <td className="self-test-item answer-item">
+                              {rightAnswerArray[realIndex]}
+                            </td>
+                            <td className="self-test-item">
+                              {questionScore[realIndex]}
+                            </td>
+                            <td> </td>
+                          </>
+                        ) : // 빈 칸 채우기
+                        null;
+                      }
+                    )}
+                  </tr> // 이거 gpt가 만들어준 거라 난 잘 모름ㅋㅋ(2025-05-10 내역 찾아보셈)
+                ))}
               </tbody>
             </table>
 

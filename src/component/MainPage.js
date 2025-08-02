@@ -49,9 +49,9 @@ export default function MainPage() {
             </button>
           </div>
           <div className="test-container">
-            <h2>사용자 정의 채점(Beta)</h2>
+            <h2>사용자 정의 채점(사용 불가)</h2>
             <p className="test-type-ex">
-              직접 답안/배점을 입력하여 채점(개발 중, 일부 기능 사용 가능)
+              직접 답안/배점을 입력하여 채점(개발 중)
             </p>
             <div className="icon-container">
               <svg
@@ -76,7 +76,6 @@ export default function MainPage() {
 }
 
 /*
-<button onClick={() => alert("개발 중입니다!")} className="scoringButton">
-        상세 보기
-      </button>
-*/
+
+            
+ */

@@ -4,52 +4,109 @@ import "../System.css";
 import "./selfTestScoring.css";
 export default function SelfTestScoring() {
   const nav = useNavigate();
+  const [quiznumber, setQuizNumber] = useState(null);
+  const [scoringMode, setScoringMode] = useState(false);
 
-  const selectList = [
-    { value: "default", name: "--과목 선택--" },
-    { value: "language", name: "국어/영어(선택형 45문항)" },
-    { value: "math", name: "수학(준비 중)" },
-    { value: "exploration", name: "탐구(선택형 20문항)" },
-  ];
-
-  const [option, setOption] = useState("default");
-
-  const handleOption = (e) => {
-    setOption(e.target.value);
-    console.log(option);
-  };
-
+  /*
   return (
     <>
       <h1>사용자 정의 모드 채점(Beta)</h1>
-      <p className="manual">
-        채점할 과목을 선택한 후, "다음으로" 버튼을 클릭하세요!
-      </p>
+
       <div>
-        <select className="subject-select" onChange={handleOption}>
-          {selectList.map((i) => {
-            return (
-              <option value={i.value} key={i.value}>
-                {i.name}
-              </option>
-            );
-          })}
-        </select>
+        {scoringMode === false ? (
+          <>
+            <p className="manual">
+              채점할 문항 수를 입력하고 '다음으로' 버튼을 클릭해주세요!
+            </p>
+            <input
+              placeholder="문항 수 입력"
+              className="answerInput"
+              value={quiznumber}
+              onChange={(e) => setQuizNumber(Number(e.target.value))}
+            ></input>
+          </>
+        ) : (
+          <>
+            <p className="manual">
+              각 문항의 답안과 주관식 여부를 선택해주세요! 여러 개의 선택지가
+              답인 경우, '복수 정답' 옵션을 선택해주세요! <br></br>
+              <br></br>문항 수를 수정하고 싶은 경우, '문항 수 수정' 버튼을
+              클릭해주세요!
+            </p>
+            <center>
+              <div className="self-test-quiz-list">
+                <div>문항번호</div>
+                <div>답안</div>
+                <div>주관식 여부</div>
+                <div>복수 정답 처리</div>
+              </div>
+            </center>
+            {Array.from({ length: quiznumber + 1 }, (_, index) => (
+              <center>
+                <div className="self-test-quiz-list">
+                  <div>{index + 1}</div>
+                  <div>
+                    <input
+                      placeholder="정답 입력"
+                      className="answerInput"
+                    ></input>
+                  </div>
+                  <div>
+                    <input type="checkbox"></input>
+                  </div>
+                  <div>
+                    <input type="checkbox"></input>
+                  </div>
+                </div>
+              </center>
+            ))}
+          </>
+        )}
       </div>
 
-      <button
-        onClick={() => {
-          option === "math"
-            ? alert("아직 개발 중입니다!")
-            : nav(`/self-test/${option}`);
-        }}
-        className="scoringButton"
-      >
-        다음으로
-      </button>
+      {scoringMode ? (
+        <>
+          <button
+            onClick={() => {
+              setScoringMode(false);
+            }}
+            className="mainButton"
+          >
+            문항 수 수정
+          </button>
+
+          <button className="scoringButton">완료</button>
+        </>
+      ) : (
+        <button
+          onClick={() => {
+            setScoringMode(true);
+          }}
+          className="scoringButton"
+        >
+          다음으로
+        </button>
+      )}
 
       <button onClick={() => nav("/")} className="mainButton">
         메인 화면
+      </button>
+    </>
+  );
+}
+  */
+
+  return (
+    <>
+      <h1>
+        현재 개발 중인 페이지입니다!<br></br>
+      </h1>
+      <p>
+        꽤 오랜 기간 사용하지 못할 수 있습니다... 해당 기능이 필요하신 분이
+        계시다면... 개발자에게 문의해주세요...
+      </p>
+      <button onClick={() => nav("/")} className="mainButton">
+        메인 페이지로
       </button>
     </>
   );
@@ -64,7 +121,7 @@ export default function SelfTestScoring() {
   let slash = 0;
   const [rightAnswer, setRightAnswer] = useState("");
   const [questionScore, setQuestionScore] = useState("");
-  const [isEntered, setIsEntered] = useState(false);
+  const [, set] = useState(false);
   const [answer1, setAnswer1] = useState("");
   const [answer2, setAnswer2] = useState("");
   const [answer3, setAnswer3] = useState("");
@@ -98,7 +155,7 @@ export default function SelfTestScoring() {
     if (rightAnswer.length !== questionScore.length) {
       alert("입력한 답 개수와 배점 개수가 일치하지 않습니다!");
     } else {
-      setIsEntered(true);
+      set(true);
       for (let i = 0; i < questionScore.length; i++) {
         tmpScore += parseInt(questionScore[i]);
       }
@@ -108,13 +165,13 @@ export default function SelfTestScoring() {
   };
 
   const reviseAnswer = () => {
-    setIsEntered(false);
+    set(false);
   };
 
   const clearAnswer = () => {
     setRightAnswer("");
     setQuestionScore("");
-    setIsEntered(false);
+    set(false);
   };
 
   const scoring = () => {
@@ -176,17 +233,17 @@ export default function SelfTestScoring() {
           placeholder="실제 답 입력"
           value={rightAnswer}
           onChange={(e) => setRightAnswer(e.target.value)}
-          className={isEntered ? "answerInput readonly" : "answerInput"}
-          readOnly={isEntered}
+          className={"answerInput"}
+          readOnly={}
         ></input>
         <input
           placeholder="문제 당 배점 입력"
           value={questionScore}
           onChange={(e) => setQuestionScore(e.target.value)}
-          className={isEntered ? "answerInput readonly" : "answerInput"}
-          readOnly={isEntered}
+          className={"answerInput"}
+          readOnly={}
         ></input>
-        {isEntered ? (
+        { ? (
           <>
             <button onClick={reviseAnswer} className="scoringButton">
               수정
