@@ -106,7 +106,7 @@ export default function FullTestScoring() {
 
   return (
     <>
-      <h1>2026 TGF 3주차 채점(Beta)</h1>
+      <h1>2026 TGF 4주차 채점(Beta)</h1>
       <p className="confirmation">
         ※ 주차 & 답안을 확인해주세요! 저번 주차로 되어 있거나 정답이 맞지
         않으면, 업데이트가 되지 않은 것입니다!
