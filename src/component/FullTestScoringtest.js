@@ -32,6 +32,10 @@ export default function FullTestScoring() {
   const thirdRef = useRef("");
   const fourthRef = useRef("");
 
+  const isScoreValid = (arr) => {
+    return arr.every((val) => val === "2" || val === "3");
+  };
+
   useEffect(() => {
     rightAnswerRef.current[0]?.focus();
   }, []);
@@ -91,13 +95,14 @@ export default function FullTestScoring() {
   const ansEnter = () => {
     let tmptotalScore = 0;
     questionScore.map((i) => (tmptotalScore += parseInt(i)));
+    console.log(questionScore);
     tmptotalScore !== 50
       ? alert(
           `입력한 배점의 총합이 ${tmptotalScore}점입니다! 다시 입력해주세요!`
         )
+      : isScoreValid(questionScore) === false
+      ? alert("배점에는 2점/3점만 입력 가능합니다! 다시 입력해주세요!")
       : setIsAnsEntered(true);
-
-    console.log(rightAnswer.length, questionScore.length, questionScore);
   };
 
   const reviseAnswer = () => {
@@ -318,9 +323,9 @@ export default function FullTestScoring() {
       <h2>
         틀린 문제(3점은 <span style={{ color: "red" }}>빨간색</span>으로 표시) :{" "}
         {wrong.map((i) =>
-          questionScore[i - 1] === 3 ? (
+          questionScore[i - 1] === "3" ? (
             <span style={{ color: "red" }}>{i}</span>
-          ) : questionScore[i - 1] === 2 ? (
+          ) : questionScore[i - 1] === "2" ? (
             <span>{i}</span>
           ) : (
             <span>{i}</span>
