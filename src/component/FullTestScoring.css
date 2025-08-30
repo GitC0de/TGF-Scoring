@@ -9,3 +9,7 @@
 .answer-item {
   font-weight: bold;
 }
+
+.right-answer-input {
+  width: 10px;
+}

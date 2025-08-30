@@ -5,11 +5,11 @@ import "./FullTestScoring.css";
 export default function FullTestScoring() {
   const nav = useNavigate();
   const rightAnswer = [
-    5, 5, 3, 1, 2, 4, 1, 3, 3, 5, 1, 5, 4, 2, 2, 3, 1, 5, 4, 2,
+    4, 1, 5, 1, 3, 3, 5, 3, 2, 5, 4, 2, 4, 1, 5, 3, 2, 2, 1, 4,
   ];
 
   const questionScore = [
-    2, 2, 3, 2, 2, 2, 2, 3, 3, 3, 3, 2, 2, 2, 3, 3, 3, 2, 3, 3,
+    2, 2, 3, 2, 2, 2, 3, 2, 3, 3, 3, 2, 2, 3, 3, 3, 3, 2, 3, 2,
   ];
 
   const wrongProblems = [];
@@ -106,7 +106,7 @@ export default function FullTestScoring() {
 
   return (
     <>
-      <h1>2026 TGF 7주차 채점</h1>
+      <h1>2026 TGF 8주차 채점</h1>
       <p className="confirmation">
         ※ 주차 & 답안을 확인해주세요! 저번 주차로 되어 있거나 정답이 맞지
         않으면, 업데이트가 되지 않은 것입니다!
