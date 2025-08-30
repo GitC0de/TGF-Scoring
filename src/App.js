@@ -18,7 +18,7 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/concept-test" element={<ConceptTestScoring />} />
           <Route path="/full-test" element={<FullTestScoring />} />
-          <Route path="/full-test-alpha" element={<FullTestScoringtest />} />
+          <Route path="/full-test-beta" element={<FullTestScoringtest />} />
           <Route path="/self-test" element={<SelfTestScoring />} />
           <Route path="/self-test/language" element={<SelfTestLanguage />} />
           <Route path="/self-test/mathnotready" element={<SelfTestMath />} />

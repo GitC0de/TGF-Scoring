@@ -173,7 +173,10 @@ export default function FullTestScoring() {
         학생이 기재한 답을 <strong>"숫자"</strong>만 입력해 주세요! (ex.
         5243...)
       </p>
-      <p className="warning">※ 단, 마킹하지 않은 문제는 0을 입력해 주세요!</p>
+      <p className="warning">
+        ※ 단, 마킹하지 않거나 복수 정답 기재 등으로 오답 처리할 문제는 답으로
+        0을 입력해 주세요!
+      </p>
 
       <div>
         <input
