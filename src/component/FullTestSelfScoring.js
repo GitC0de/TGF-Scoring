@@ -142,6 +142,12 @@ export default function FullTestScoring() {
     }
   };
 
+  const settingByKey = (e) => {
+    if (e.key === "Enter") {
+      ansEnter();
+    }
+  };
+
   const scoringByKey = (e) => {
     if (e.key === "Enter") {
       scoring();
@@ -163,11 +169,15 @@ export default function FullTestScoring() {
   return (
     <>
       <h1>2026 TGF 채점</h1>
+      <p>
+        ※ 참고 : 개발자의 휴무로 인해 직접 입력 가능한 버전으로
+        업데이트해두었습니다!
+      </p>
       {isAnsEntered ? (
         <>
           <p>
-            입력한 답안과 배점이 맞는지 확인하고, 수정이 필요한 경우 '수정'
-            버튼을 이용해 수정해주세요!
+            입력한 답안과 배점이 맞는지 확인하고, 수정이 필요한 경우 '수정',
+            '초기화' 버튼을 이용해 수정해주세요!
           </p>
         </>
       ) : (
@@ -223,6 +233,7 @@ export default function FullTestScoring() {
                         ref={(el) => {
                           rightAnswerRef.current[realIndex] = el;
                         }}
+                        onKeyDown={settingByKey}
                         maxLength={1}
                       ></input>
                     </td>
@@ -236,6 +247,7 @@ export default function FullTestScoring() {
                         ref={(el) => {
                           questionScoreRef.current[realIndex] = el;
                         }}
+                        onKeyDown={settingByKey}
                         maxLength={1}
                       ></input>
                     </td>
@@ -270,7 +282,7 @@ export default function FullTestScoring() {
       ) : (
         <>
           <button onClick={ansEnter} className="scoringButton">
-            입력
+            입력(Enter)
           </button>
         </>
       )}

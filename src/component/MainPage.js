@@ -30,7 +30,7 @@ export default function MainPage() {
           </div>
           <div className="test-container">
             <h2>2/3단계 채점</h2>
-            <p className="test-type-ex">AS / TGF(매주 업데이트 예정)</p>
+            <p className="test-type-ex">AS / TGF(사용자 입력)</p>
             <div className="icon-container">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,14 @@ export default function MainPage() {
               2/3단계 ver. 채점
             </button>
           </div>
-          <div className="test-container">
+        </div>
+      </div>
+    </>
+  );
+}
+
+/*
+<div className="test-container">
             <h2>사용자 정의 채점(사용 불가)</h2>
             <p className="test-type-ex">
               직접 답안/배점을 입력하여 채점(개발 중)
@@ -69,13 +76,5 @@ export default function MainPage() {
               사용자 정의 채점
             </button>
           </div>
-        </div>
-      </div>
-    </>
-  );
-}
-
-/*
-
             
  */

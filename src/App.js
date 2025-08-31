@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import MainPage from "./component/MainPage";
 import ConceptTestScoring from "./component/ConceptTestScoring";
 import FullTestScoring from "./component/FullTestScoring";
-import FullTestScoringtest from "./component/FullTestScoringtest";
+import FullTestSelfScoring from "./component/FullTestSelfScoring";
 import SelfTestScoring from "./component/selfTestScoring";
 import SelfTestLanguage from "./component/selfTestLanguage";
 import SelfTestMath from "./component/selfTestMath";
@@ -17,8 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/concept-test" element={<ConceptTestScoring />} />
-          <Route path="/full-test" element={<FullTestScoring />} />
-          <Route path="/full-test-beta" element={<FullTestScoringtest />} />
+          <Route path="/full-test" element={<FullTestSelfScoring />} />
           <Route path="/self-test" element={<SelfTestScoring />} />
           <Route path="/self-test/language" element={<SelfTestLanguage />} />
           <Route path="/self-test/mathnotready" element={<SelfTestMath />} />
