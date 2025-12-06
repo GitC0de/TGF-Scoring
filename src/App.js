@@ -4,6 +4,7 @@ import MainPage from "./component/MainPage";
 import ConceptTestScoring from "./component/ConceptTestScoring";
 import FullTestScoring from "./component/FullTestScoring";
 import FullTestSelfScoring from "./component/FullTestSelfScoring";
+import IntegratedScienceFullScoring from "./component/tmpIntegratedScoring";
 import SelfTestScoring from "./component/selfTestScoring";
 import SelfTestLanguage from "./component/selfTestLanguage";
 import SelfTestMath from "./component/selfTestMath";
@@ -18,6 +19,10 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/concept-test" element={<ConceptTestScoring />} />
           <Route path="/full-test" element={<FullTestSelfScoring />} />
+          <Route
+            path="/integrated-science-full-test"
+            element={<IntegratedScienceFullScoring />}
+          />
           <Route path="/self-test" element={<SelfTestScoring />} />
           <Route path="/self-test/language" element={<SelfTestLanguage />} />
           <Route path="/self-test/mathnotready" element={<SelfTestMath />} />
