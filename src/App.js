@@ -9,6 +9,8 @@ import SelfTestScoring from "./component/selfTestScoring";
 import SelfTestLanguage from "./component/selfTestLanguage";
 import SelfTestMath from "./component/selfTestMath";
 import SelfTestExploration from "./component/selfTestExploration";
+import NotFound from "./component/NotFound";
+
 import "./App.css";
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
             path="/self-test/exploration"
             element={<SelfTestExploration />}
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </div>

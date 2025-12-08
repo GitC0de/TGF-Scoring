@@ -50,9 +50,7 @@ export default function MainPage() {
           </div>
           <div className="test-container">
             <h2>통합과학 채점</h2>
-            <p className="test-type-ex">
-              현장 시험만, 재시험 사용 기능 미제공(사용자 입력)
-            </p>
+            <p className="test-type-ex">현장 시험(사용자 입력)</p>
             <div className="icon-container">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
