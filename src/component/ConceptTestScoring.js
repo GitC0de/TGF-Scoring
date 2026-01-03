@@ -2,8 +2,19 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ConceptTestScoring.css";
 
-const answers = ["23", "1235", "125", "2", "14"]; // 정답 수정
-const pointsPerChoice = [2, 2, 2, 2, 2]; // 점수 수정
+const answers = [
+  "234",
+  "125",
+  "34",
+  "1234",
+  "345",
+  "135",
+  "125",
+  "135",
+  "235",
+  "135",
+]; // 정답 수정
+const pointsPerChoice = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]; // 점수 수정
 
 function analyzeAnswer(studentAnswer, correctAnswer) {
   let wrongChoices = [];
@@ -103,10 +114,10 @@ export default function GradingApp() {
 
   return (
     <>
-      <h1>2026 개념반 16주차(종강ㅋㅋ) 채점(Beta)</h1>
-      <p className="confirmation">
-        ※ 주차를 확인해주세요! 저번 주차로 되어 있다면, 업데이트가 되지 않은
-        것입니다!
+      <h1>2027 개념반 3주차 채점</h1>
+      <p>
+        1/3 : 2027 개념반 <strong>3주차</strong> 업데이트
+        완료되었습니다(개발자가 직접 정답 업데이트 중)!
       </p>
       <p className="manual">
         학생이 기재한 답을 <strong>"숫자"</strong>만 입력해 주세요! (ex. 134,
