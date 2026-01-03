@@ -150,7 +150,7 @@ export default function GradingApp() {
           <table className="answer-table">
             <thead>
               <tr>
-                <th colspan="5">틀린 선택지</th>
+                <th colspan="6">틀린 선택지</th>
               </tr>
             </thead>
             <tbody>
@@ -159,6 +159,9 @@ export default function GradingApp() {
                 console.log(items);
                 return (
                   <tr>
+                    <td className="question-cell">
+                      <strong>{index + 1}</strong>
+                    </td>
                     <td
                       className={
                         items.includes("1") || items.includes("미입력")
@@ -166,7 +169,7 @@ export default function GradingApp() {
                           : null
                       }
                     >
-                      1
+                      ①
                     </td>
                     <td
                       className={
@@ -175,7 +178,7 @@ export default function GradingApp() {
                           : null
                       }
                     >
-                      2
+                      ②
                     </td>
                     <td
                       className={
@@ -184,7 +187,7 @@ export default function GradingApp() {
                           : null
                       }
                     >
-                      3
+                      ③
                     </td>
                     <td
                       className={
@@ -193,7 +196,7 @@ export default function GradingApp() {
                           : null
                       }
                     >
-                      4
+                      ④
                     </td>
                     <td
                       className={
@@ -202,7 +205,7 @@ export default function GradingApp() {
                           : null
                       }
                     >
-                      5
+                      ⑤
                     </td>
                   </tr>
                 );
