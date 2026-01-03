@@ -11,7 +11,7 @@ export default function MainPage() {
         <div className="test-select-container">
           <div className="test-container">
             <h2>1단계 채점</h2>
-            <p className="test-type-ex">1단계 개념반 TEST 채점(현재 종강)</p>
+            <p className="test-type-ex">1단계 개념반 TEST 채점</p>
             <div className="icon-container">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@ export default function MainPage() {
             </button>
           </div>
           <div className="test-container">
-            <h2>2/3단계 채점</h2>
+            <h2>2/3단계 채점(현재 종강)</h2>
             <p className="test-type-ex">AS / TGF(사용자 입력)</p>
             <div className="icon-container">
               <svg
