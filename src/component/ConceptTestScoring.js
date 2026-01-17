@@ -2,7 +2,18 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ConceptTestScoring.css";
 
-const answers = ["124", "35", "5", "24", "45", "145", "15", "25", "23", "2"]; // 정답 수정
+const answers = [
+  "234",
+  "345",
+  "2",
+  "135",
+  "124",
+  "2345",
+  "45",
+  "2",
+  "12",
+  "123",
+]; // 정답 수정
 const pointsPerChoice = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]; // 점수 수정
 
 function analyzeAnswer(studentAnswer, correctAnswer) {
@@ -103,9 +114,9 @@ export default function GradingApp() {
 
   return (
     <>
-      <h1>2027 개념반 4주차 채점</h1>
+      <h1>2027 개념반 5주차 채점</h1>
       <p>
-        1/10 : 2027 개념반 <strong>4주차</strong> 업데이트
+        1/17 : 2027 개념반 <strong>5주차</strong> 업데이트
         완료되었습니다(개발자가 직접 정답 업데이트 중)!
       </p>
       <p className="manual">
