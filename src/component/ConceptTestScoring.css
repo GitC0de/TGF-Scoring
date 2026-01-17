@@ -32,6 +32,6 @@ th {
   border-collapse: separate;
 }
 
-td {
+.answer-cell {
   border: 1px solid black;
 }

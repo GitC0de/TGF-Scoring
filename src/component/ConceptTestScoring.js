@@ -165,8 +165,8 @@ export default function GradingApp() {
                     <td
                       className={
                         items.includes("1") || items.includes("미입력")
-                          ? "wrong"
-                          : null
+                          ? "answer-cell wrong"
+                          : "answer-cell"
                       }
                     >
                       ①
@@ -174,8 +174,8 @@ export default function GradingApp() {
                     <td
                       className={
                         items.includes("2") || items.includes("미입력")
-                          ? "wrong"
-                          : null
+                          ? "answer-cell wrong"
+                          : "answer-cell"
                       }
                     >
                       ②
@@ -183,8 +183,8 @@ export default function GradingApp() {
                     <td
                       className={
                         items.includes("3") || items.includes("미입력")
-                          ? "wrong"
-                          : null
+                          ? "answer-cell wrong"
+                          : "answer-cell"
                       }
                     >
                       ③
@@ -192,8 +192,8 @@ export default function GradingApp() {
                     <td
                       className={
                         items.includes("4") || items.includes("미입력")
-                          ? "wrong"
-                          : null
+                          ? "answer-cell wrong"
+                          : "answer-cell"
                       }
                     >
                       ④
@@ -201,8 +201,8 @@ export default function GradingApp() {
                     <td
                       className={
                         items.includes("5") || items.includes("미입력")
-                          ? "wrong"
-                          : null
+                          ? "answer-cell wrong"
+                          : "answer-cell"
                       }
                     >
                       ⑤
