@@ -3,16 +3,16 @@ import { useNavigate } from "react-router-dom";
 import "./ConceptTestScoring.css";
 
 const answers = [
-  "234",
-  "345",
-  "2",
-  "135",
-  "124",
-  "2345",
-  "45",
-  "2",
   "12",
-  "123",
+  "12345",
+  "3",
+  "1345",
+  "1235",
+  "12345",
+  "234",
+  "13",
+  "14",
+  "23",
 ]; // 정답 수정
 const pointsPerChoice = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]; // 점수 수정
 
