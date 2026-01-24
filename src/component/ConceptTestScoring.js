@@ -114,9 +114,9 @@ export default function GradingApp() {
 
   return (
     <>
-      <h1>2027 개념반 5주차 채점</h1>
+      <h1>2027 개념반 6주차 채점</h1>
       <p>
-        1/17 : 2027 개념반 <strong>5주차</strong> 업데이트
+        1/24 : 2027 개념반 <strong>6주차</strong> 업데이트
         완료되었습니다(개발자가 직접 정답 업데이트 중)!
       </p>
       <p className="manual">
