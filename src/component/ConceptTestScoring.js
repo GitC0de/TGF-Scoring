@@ -2,19 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ConceptTestScoring.css";
 
-const answers = [
-  "12",
-  "12345",
-  "3",
-  "1345",
-  "1235",
-  "12345",
-  "234",
-  "13",
-  "14",
-  "23",
-]; // 정답 수정
-const pointsPerChoice = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]; // 점수 수정
+const answers = ["235", "1235", "4", "123"]; // 정답 수정
+const pointsPerChoice = [2, 3, 2, 3]; // 점수 수정
 
 function analyzeAnswer(studentAnswer, correctAnswer) {
   let wrongChoices = [];
@@ -114,9 +103,9 @@ export default function GradingApp() {
 
   return (
     <>
-      <h1>2027 개념반 6주차 채점</h1>
+      <h1>2027 개념반 7주차 채점</h1>
       <p>
-        1/24 : 2027 개념반 <strong>6주차</strong> 업데이트
+        2/1 : 2027 개념반 <strong>7주차</strong> 업데이트
         완료되었습니다(개발자가 직접 정답 업데이트 중)!
       </p>
       <p className="manual">
