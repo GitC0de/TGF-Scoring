@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ConceptTestScoring.css";
 
-const answers = ["235", "1235", "4", "123"]; // 정답 수정
-const pointsPerChoice = [2, 3, 2, 3]; // 점수 수정
+const answers = ["124", "12345", "124", "235", "1"]; // 정답 수정
+const pointsPerChoice = [2, 2, 2, 2, 2]; // 점수 수정
 
 function analyzeAnswer(studentAnswer, correctAnswer) {
   let wrongChoices = [];
