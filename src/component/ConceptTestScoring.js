@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ConceptTestScoring.css";
 
-const answers = ["124", "12345", "124", "235", "1"]; // 정답 수정
+const answers = ["234", "124", "234", "3", "23"]; // 정답 수정
 const pointsPerChoice = [2, 2, 2, 2, 2]; // 점수 수정
 
 function analyzeAnswer(studentAnswer, correctAnswer) {
@@ -103,9 +103,9 @@ export default function GradingApp() {
 
   return (
     <>
-      <h1>2027 개념반 8주차 채점</h1>
+      <h1>2027 개념반 9주차 채점</h1>
       <p>
-        2/7 : 2027 개념반 <strong>8주차</strong> 업데이트
+        2/14 : 2027 개념반 <strong>9주차</strong> 업데이트
         완료되었습니다(개발자가 직접 정답 업데이트 중)!
       </p>
       <p className="manual">
