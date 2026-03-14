@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ConceptTestScoring.css";
 
-const answers = ["145", "2", "15", "45"]; // 정답 수정
-const pointsPerChoice = [2, 3, 2, 3]; // 점수 수정
+const answers = ["34", "1345", "345", "135", "2"]; // 정답 수정
+const pointsPerChoice = [2, 2, 2, 2, 2]; // 점수 수정
 
 function analyzeAnswer(studentAnswer, correctAnswer) {
   let wrongChoices = [];
@@ -27,6 +27,8 @@ function calculateScore(studentAnswer, correctAnswer, pointPerChoice) {
   for (let choice of "12345") {
     if (studentAnswer.length === 0) {
       score += 0;
+    } else if (studentAnswer.includes()) {
+      alert("입력 가능하지 않은 문자가 있습니다!");
     } else if (
       (correctAnswer.includes(choice) && studentAnswer.includes(choice)) ||
       (!correctAnswer.includes(choice) && !studentAnswer.includes(choice))
