@@ -72,12 +72,12 @@ export default function FullTestScoring() {
     item === "1"
       ? showRightAnswer.push("①")
       : item === "2"
-      ? showRightAnswer.push("②")
-      : item === "3"
-      ? showRightAnswer.push("③")
-      : item === "4"
-      ? showRightAnswer.push("④")
-      : showRightAnswer.push("⑤");
+        ? showRightAnswer.push("②")
+        : item === "3"
+          ? showRightAnswer.push("③")
+          : item === "4"
+            ? showRightAnswer.push("④")
+            : showRightAnswer.push("⑤");
   });
 
   const handleRightAnswer = (index, value) => {
@@ -98,11 +98,11 @@ export default function FullTestScoring() {
     console.log(questionScore);
     tmptotalScore !== 50
       ? alert(
-          `입력한 배점의 총합이 ${tmptotalScore}점입니다! 다시 입력해주세요!`
+          `입력한 배점의 총합이 ${tmptotalScore}점입니다! 다시 입력해주세요!`,
         )
       : isScoreValid(questionScore) === false
-      ? alert("배점에는 2점/3점만 입력 가능합니다! 다시 입력해주세요!")
-      : setIsAnsEntered(true);
+        ? alert("배점에는 2점/3점만 입력 가능합니다! 다시 입력해주세요!")
+        : setIsAnsEntered(true);
   };
 
   const reviseAnswer = () => {
@@ -168,7 +168,7 @@ export default function FullTestScoring() {
 
   return (
     <>
-      <h1>2026 TGF 채점</h1>
+      <h1>2027 AP 채점</h1>
       <p>
         ※ 참고 : 개발자의 휴무로 인해 직접 입력 가능한 버전으로
         업데이트해두었습니다!
@@ -341,7 +341,7 @@ export default function FullTestScoring() {
             <span>{i}</span>
           ) : (
             <span>{i}</span>
-          )
+          ),
         )}
       </h2>
 
